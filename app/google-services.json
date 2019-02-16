@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "652745565912",
+    "firebase_url": "https://snakegame-7d330.firebaseio.com",
+    "project_id": "snakegame-7d330",
+    "storage_bucket": "snakegame-7d330.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652745565912:android:0dfc28057b7a8e1a",
+        "android_client_info": {
+          "package_name": "lee.snakegame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652745565912-oaecnqita8e2dn3a8ooq01lliom4be3i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "lee.snakegame",
+            "certificate_hash": "cffaeb03e83ce60a119ac12f4a76e9f1a2aed5ab"
+          }
+        },
+        {
+          "client_id": "652745565912-tskd644jsv8i0du7rtlnr5oith2bfbiq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgoiJQZtc1cUvrsOTorvq9ddV4UcxSagI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "652745565912-tskd644jsv8i0du7rtlnr5oith2bfbiq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

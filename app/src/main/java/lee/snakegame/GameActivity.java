@@ -25,10 +25,17 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import java.lang.ref.WeakReference;
 import java.util.Random;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity implements RewardedVideoAdListener {
 
     Canvas canvas;
     SnakeView snakeView;
@@ -65,11 +72,23 @@ public class GameActivity extends AppCompatActivity {
     int numBlocksWide;
     int numBlocksHigh;
 
+    private RewardedVideoAd mRewardedVideoAd;
+
+    private void loadRewardedVideoAd() {
+        mRewardedVideoAd.loadAd("ca-app-pub-3847525926087017/2846575255",
+                new AdRequest.Builder().build());
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_game);
+
+
+// Use an activity context to get the rewarded video instance.
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        mRewardedVideoAd.setRewardedVideoAdListener(this);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -92,6 +111,46 @@ public class GameActivity extends AppCompatActivity {
         configureDisplay();
         snakeView = new SnakeView(this);
         setContentView(snakeView);
+
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+
+    }
+
+    @Override
+    public void onRewarded(RewardItem rewardItem) {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
+
+    }
+
+    @Override
+    public void onRewardedVideoCompleted() {
 
     }
 
@@ -188,6 +247,7 @@ public class GameActivity extends AppCompatActivity {
             if(dead){
                 soundpool.play(sample4,1,1,0,0,1);
                 hi = score;
+                loadRewardedVideoAd();
                 score = 0;
                 getSnake();
             }
